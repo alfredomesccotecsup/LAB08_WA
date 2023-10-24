@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Usuarios</title>
+  <link rel="stylesheet" href="/css/listaUsuarios.css">
+</head>
+<body>
+  <h2>Lista de  Usuarios Registrados</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach((user) => { %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td>
+            <button class="btn btn-primary edit-user-btn" data-user-id="<%= user._id %>">Editar</button>
+            <a href="/users/delete/<%= user._id %>" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>
